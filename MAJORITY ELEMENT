@@ -1,0 +1,29 @@
+Find the Majority Element in an Array
+Write a program to find the majority element in an array (an element that 
+appears more than n/2 times).
+For example, in the array [3, 3, 4, 2, 4, 4, 2, 4, 4], the output should be 4. Do not 
+use any built-in functions for array manipulation or counting.
+Instructions: Implement a manual count and comparison logic to find the 
+majority element.
+Code:
+def find_majority (arr):
+ index_no = None
+ count = 0
+ for num in arr:
+ if count == 0:
+ index_no = num
+ count += 1 if num == index_no else -1
+ occ = 0
+ for num in arr:
+ if num == index_no:
+ occ += 1
+ if occ > len(arr) // 2:
+ return index_no
+ else:
+ return None
+arr = eval(input())
+result = find_majority(arr)
+if result is not None:
+ print(f"The majority element is: {result}")
+else:
+ print("-1")
